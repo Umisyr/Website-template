@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Title box */
+.title-box {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  width: 50%;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px gray;
+}
+
+/* Intro text */
+.intro {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form box */
+form {
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Base button */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+/* Variations */
+.btn-blue {
+  background-color: blue;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: darkblue;
+}
+
+.btn-orange {
+  background-color: orange;
+  color: black;
+}
+
+.btn-orange:hover {
+  background-color: darkorange;
+  color: white;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: yellow;
+}
+
+/* Account info box */
+.account-box {
+  background-color: white;
+  width: 350px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+  font-size: 16px;
+}
+
+.account-box h2 {
+  text-align: center;
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+}
+
+.poster {
+  display: block;
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 250px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  text-decoration: none; /* remove link underline */
+  color: inherit; /* keep text color normal */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poster img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.poster:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+}
