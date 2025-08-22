@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Test Website</title>
+  <link rel="stylesheet" href="index.css"> <!-- Link to CSS -->
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="welcome.html">Dashboard</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <h1 class="title-box">Welcome to My Website</h1>
+  <p class="intro">Please login to continue.</p>
+
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <button type="submit" class="btn btn-blue">Login</button>
+  </form>
+
+<!-- Posters Section -->
+<div class="poster-container">
+  <!-- Poster 1 -->
+  <a href="about.html" class="poster">
+    <img src="images/image1.jpg" alt="About Us">
+    <h2>About Us</h2>
+    <p>Learn more about our team and mission.</p>
+  </a>
+
+  <!-- Poster 2 -->
+  <a href="services.html" class="poster">
+    <img src="images/image2.jpg" alt="Services">
+    <h2>Services</h2>
+    <p>Check out what we can offer you.</p>
+  </a>
+
+  <!-- Poster 3 -->
+  <a href="contact.html" class="poster">
+    <img src="images/image3.jpg" alt="Contact">
+    <h2>Contact</h2>
+    <p>Get in touch with us today.</p>
+  </a>
+</div>
+
+  <script>
+    // Fake login: always go to welcome.html
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // get username from form
+      let username = document.getElementById("username").value;
+
+      // store username in localStorage
+      localStorage.setItem("username", username);
+
+      window.location.href = "welcome.html";
+    });
+  </script>
+</body>
+</html>
