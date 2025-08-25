@@ -36,6 +36,9 @@
     <label>Rent/House Loan:</label>
     <input type="number" id="rent" placeholder="RM 0">
 
+    <label>Car Loan:</label>
+    <input type="number" id="car_loan" placeholder="RM 0">
+
     <label>Food & Groceries:</label>
     <input type="number" id="food" placeholder="RM 0">
 
@@ -60,12 +63,13 @@
     function calculateBudget() {
       let salary = parseFloat(document.getElementById("salary").value) || 0;
       let rent = parseFloat(document.getElementById("rent").value) || 0;
+      let car_loan = parseFloat(document.getElementById("car_loan").value) || 0;
       let food = parseFloat(document.getElementById("food").value) || 0;
       let transport = parseFloat(document.getElementById("transport").value) || 0;
       let bills = parseFloat(document.getElementById("bills").value) || 0;
       let others = parseFloat(document.getElementById("others").value) || 0;
 
-      let totalExpenses = rent + food + transport + bills + others;
+      let totalExpenses = rent + car_loan + food + transport + bills + others;
       let balance = salary - totalExpenses;
 
       let resultText = "Total Expenses: RM " + totalExpenses + "\n";
