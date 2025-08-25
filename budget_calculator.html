@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Budget Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="card">
+    <h2>Monthly Budget Calculator</h2>
+    
+    <label for="salary">Monthly Salary (RM):</label>
+    <input type="number" id="salary" placeholder="Enter your salary">
+
+    <h3>Expenses:</h3>
+    <label>Rent/House Loan:</label>
+    <input type="number" id="rent" placeholder="RM 0">
+
+    <label>Food & Groceries:</label>
+    <input type="number" id="food" placeholder="RM 0">
+
+    <label>Transport:</label>
+    <input type="number" id="transport" placeholder="RM 0">
+
+    <label>Bills (utilities, internet, etc.):</label>
+    <input type="number" id="bills" placeholder="RM 0">
+
+    <label>Other Expenses:</label>
+    <input type="number" id="others" placeholder="RM 0">
+
+    <button onclick="calculateBudget()">Calculate</button>
+
+    <div class="result" id="result"></div>
+    <canvas id="budgetChart"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
