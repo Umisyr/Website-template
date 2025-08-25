@@ -4,8 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monthly Budget Calculator</title>
-  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+    input { width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
+    button { padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+    button:hover { background: #0056b3; }
+    .result { margin-top: 15px; font-weight: bold; white-space: pre-line; }
+    canvas { margin-top: 20px; }
+  </style>
 </head>
 <body>
   <div class="card">
@@ -36,6 +44,56 @@
     <canvas id="budgetChart"></canvas>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    let budgetChart; // Global chart variable
+
+    function calculateBudget() {
+      let salary = parseFloat(document.getElementById("salary").value) || 0;
+      let rent = parseFloat(document.getElementById("rent").value) || 0;
+      let food = parseFloat(document.getElementById("food").value) || 0;
+      let transport = parseFloat(document.getElementById("transport").value) || 0;
+      let bills = parseFloat(document.getElementById("bills").value) || 0;
+      let others = parseFloat(document.getElementById("others").value) || 0;
+
+      let totalExpenses = rent + food + transport + bills + others;
+      let balance = salary - totalExpenses;
+
+      let resultText = "Total Expenses: RM " + totalExpenses + "\n";
+      if (balance > 0) {
+        resultText += "You can save RM " + balance + " this month 🎉";
+      } else if (balance === 0) {
+        resultText += "Your expenses equal your salary. No savings this month 😅";
+      } else {
+        resultText += "You overspent by RM " + Math.abs(balance) + " ⚠️";
+      }
+
+      document.getElementById("result").innerText = resultText;
+
+      // Destroy old chart if it exists
+      if (budgetChart) {
+        budgetChart.destroy();
+      }
+
+      // Create pie chart
+      const ctx = document.getElementById("budgetChart").getContext("2d");
+      budgetChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Rent", "Food", "Transport", "Bills", "Others", "Savings"],
+          datasets: [{
+            data: [rent, food, transport, bills, others, balance > 0 ? balance : 0],
+            backgroundColor: ["#FF6384","#36A2EB","#FFCE56","#4BC0C0","#9966FF","#00C851"]
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: "bottom" },
+            title: { display: true, text: "Monthly Budget Distribution" }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
